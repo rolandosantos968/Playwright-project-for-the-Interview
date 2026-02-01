@@ -12,6 +12,8 @@ This is an automation project for an interview. It includes test cases related t
 
 - In VS Code, open the project.
 - Open a new terminal using the Terminal window or Ctrl+Shift+`.
+- Clone this repository with: `git clone https://github.com/rolandosantos968/Playwright-project-for-the-Interview.git`
+- Navigate to the project folder: `cd Playwright-Project-for-Interview`
 - Run the next command: `npm install`
 - Then, run the next command: `npx playwright install`
 
