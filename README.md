@@ -18,7 +18,8 @@ This is an automation project for an interview. It includes test cases related t
 
 ## Running the tests
 In the console:
-- For running all the tests available: `npx playwright test`
-- For running all the tests available with the browser open: `npx playwright test --headed`
-- For running specific tests: `npx playwright test -g "testname"`
-- For running specific tests and debugging: `npx playwright test -g "testname" --debug`
+- For running all the tests available: `npm run test` or `npx playwright test`
+- For running all the tests available with the browser open: `npm run headed` or `npx playwright test --headed`
+- For running specific tests:`npm run case "testname"` or `npx playwright test -g "testname"`
+- For running specific tests and debugging:`npm run debug "testname"` or `npx playwright test -g "testname" --debug`
+- For running the report of execution: `npm run debug report` or `npx playwright show-report`
