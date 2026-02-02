@@ -16,7 +16,13 @@ export class loginPage{
     }
 
     async goto(){
-        await this.page.goto("https://the-internet.herokuapp.com/login");
+        await this.page.goto("/login");
 
+    }
+
+    async login(username: string, password: string){
+        await this.usernameTextBox.fill(username);
+        await this.passwordTextBox.fill(password);
+        await this.loginButton.click();
     }
 }

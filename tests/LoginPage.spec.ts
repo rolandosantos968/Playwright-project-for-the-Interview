@@ -7,9 +7,7 @@ test("[1] Successful Login", async ({page}) => {
     const userLoginPage = new loginPage(page);
     const userSecurePage = new securePage(page);
     await userLoginPage.goto();
-    await userLoginPage.usernameTextBox.fill("tomsmith");
-    await userLoginPage.passwordTextBox.fill("SuperSecretPassword!");
-    await userLoginPage.loginButton.click();
+    await userLoginPage.login(process.env.VALID_USERNAME!,process.env.VALID_PASSWORD!);
     // Checking the user got the toast for successful login
     await expect(userSecurePage.toastMessage).toContainText("You logged into a secure area!");
 });
@@ -17,9 +15,7 @@ test("[1] Successful Login", async ({page}) => {
 test("[2] Login with Invalid Username", async ({page}) => {
     const userLoginPage = new loginPage(page);
     await userLoginPage.goto();
-    await userLoginPage.usernameTextBox.fill("invalid");
-    await userLoginPage.passwordTextBox.fill("SuperSecretPassword!");
-    await userLoginPage.loginButton.click();
+    await userLoginPage.login(process.env.INVALID_USERNAME!,process.env.VALID_PASSWORD!);
     // Checking the user got the toast for invalid username
     await expect(userLoginPage.toastMessage).toContainText("Your username is invalid!");
 });
@@ -27,9 +23,7 @@ test("[2] Login with Invalid Username", async ({page}) => {
 test("[3] Login with Invalid Password", async ({page}) => {
     const userLoginPage = new loginPage(page);
     await userLoginPage.goto();
-    await userLoginPage.usernameTextBox.fill("tomsmith");
-    await userLoginPage.passwordTextBox.fill("invalid");
-    await userLoginPage.loginButton.click();
+    await userLoginPage.login(process.env.VALID_USERNAME!,process.env.INVALID_PASSWORD!);
     // Checking the user got the toast for invalid password
     await expect(userLoginPage.toastMessage).toContainText("Your password is invalid!");
 });
@@ -38,9 +32,7 @@ test("[4] Logout of the page", async ({page}) => {
     const userLoginPage = new loginPage(page);
     const userSecurePage = new securePage(page);
     await userLoginPage.goto();
-    await userLoginPage.usernameTextBox.fill("tomsmith");
-    await userLoginPage.passwordTextBox.fill("SuperSecretPassword!");
-    await userLoginPage.loginButton.click();
+    await userLoginPage.login(process.env.VALID_USERNAME!,process.env.VALID_PASSWORD!);
     await userSecurePage.logoutButton.click();
     // Checking the user got the toast for logout of the secure area
     await expect(userSecurePage.toastMessage).toContainText("You logged out of the secure area!");
