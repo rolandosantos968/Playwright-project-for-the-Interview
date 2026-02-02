@@ -3,7 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "npx playwright test",
+    "report": "npx playwright show-report",
+    "headed": "npx playwright test --headed",
+    "case": "npx playwright test -g ",
+    "debug":"npx playwright test --debug -g"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rolandosantos968/Playwright-Project-for-Interview.git"
